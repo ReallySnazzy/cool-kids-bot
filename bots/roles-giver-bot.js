@@ -55,11 +55,11 @@ class RolesGiverBot extends BaseDiscordBot {
             let roleName = INTERACTION_ROLE_MAPPING[interaction.customId];
             let role = await easyDiscord.roleByName(this.client, roleName);
             if (interaction.member.roles.cache.has(role.id)) {
-                this.logger.log('info', `Giving role ${roleName} to ${interaction.user.username}`);
+                this.logger.log('info', `Removing role ${roleName} from ${interaction.user.username}`);
                 await interaction.member.roles.remove(role);
                 await interaction.reply({ content: 'Removed role ' + roleName, ephemeral: true });
             } else {
-                this.logger.log('info', `Removing role ${roleName} from ${interaction.user.username}`);
+                this.logger.log('info', `Giving role ${roleName} to ${interaction.user.username}`);
                 await interaction.member.roles.add(role);
                 await interaction.reply({ content: 'Gave role ' + roleName, ephemeral: true });
             }
