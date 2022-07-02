@@ -1,4 +1,5 @@
 # cool-kids-bot
+
 A discord bot used in my personal discord server.
 
 ## Creating a new feature
